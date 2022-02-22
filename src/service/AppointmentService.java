@@ -11,6 +11,13 @@ public class AppointmentService {
     private ArrayList<Appointment> scheduledAppointments;
     private ArrayList<ZonedDateTime> allTimeSlots;
 
+    private AppointmentService() {
+        scheduledAppointments = new ArrayList<Appointment>();
+        allTimeSlots = new ArrayList<ZonedDateTime>();
+
+        // Make list of all time slots...
+    }
+
     public static AppointmentService getInstance() {
         if (instance == null) {
             instance = new AppointmentService();
