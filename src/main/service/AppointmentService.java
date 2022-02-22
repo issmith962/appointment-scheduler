@@ -2,19 +2,26 @@ package main.service;
 
 import main.model.Appointment;
 
+import java.time.DayOfWeek;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.TemporalUnit;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class AppointmentService {
     private static AppointmentService instance = null;
     private ArrayList<Appointment> scheduledAppointments;
     private ArrayList<String> allTimeSlots;
+    private HashMap<String, ArrayList<Integer>> timeToDoctorOccupied;
 
     private AppointmentService() {
-        scheduledAppointments = new ArrayList<Appointment>();
-        allTimeSlots = new ArrayList<String>();
+        scheduledAppointments = new ArrayList<>();
+        allTimeSlots = new ArrayList<>();
+        timeToDoctorOccupied = new HashMap<String, ArrayList<Integer>>();
 
         // Make list of all time slots...
         ZonedDateTime startSlot = ZonedDateTime.of(2021, 11,1,8,0,0,0, ZoneId.of("UTC"));
@@ -52,13 +59,23 @@ public class AppointmentService {
     }
 
     public Appointment findBestAvailableSlot(Integer personId, List<String> preferredDays, List<Integer> preferredDocs, Boolean isNew) {
-        ArrayList<ArrayList<String>> offLimitIntervals;
+        >
+
+        ArrayList<ArrayList<ZonedDateTime>> offLimitIntervals = new ArrayList<>();
         for (Appointment appt : scheduledAppointments) {
             if (appt.getPersonId() == personId) {
-                allTimeSlots.remove(appt.getAppointmentTime());
-            }
-        }
+                ArrayList<ZonedDateTime> plusMinusOneWeek = new ArrayList<>();
+                ZonedDateTime zdt = ZonedDateTime.parse(appt.getAppointmentTime());
+                plusMinusOneWeek.add(zdt.minusDays(6).truncatedTo(DAYS).withHour(8));
+                plusMinusOneWeek.add(zdt.plusDays(7).truncatedTo(DAYS).withHour(16));
 
+                offLimitIntervals.add(plusMinusOneWeek);
+            }
+            if (!timeToDoctorOccupied.containsKey(appt.getAppointmentTime())) {
+                timeToDoctorOccupied.put(appt.getAppointmentTime(), new ArrayList<>());
+            }
+            timeToDoctorOccupied.get(appt.getAppointmentTime()).add(appt.getDoctorId());
+        }
         return null;
     }
 }
