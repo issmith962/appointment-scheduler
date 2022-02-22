@@ -52,7 +52,13 @@ public class AppointmentService {
     }
 
     public Appointment findBestAvailableSlot(Integer personId, List<String> preferredDays, List<Integer> preferredDocs, Boolean isNew) {
-        // return an appointment for person during best open slot (according to preferences)
-        return null; // for now
+        ArrayList<ArrayList<String>> offLimitIntervals;
+        for (Appointment appt : scheduledAppointments) {
+            if (appt.getPersonId() == personId) {
+                
+            }
+        }
+
+        return null;
     }
 }
