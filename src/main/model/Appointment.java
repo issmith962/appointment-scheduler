@@ -8,6 +8,8 @@ public class Appointment {
     private ZonedDateTime appointmentTime;
     private boolean isNewPatientAppointment;
 
+    public Appointment() {}
+
     public Appointment(int doctorId, int personId, ZonedDateTime appointmentTime, boolean isNewPatientAppointment) {
         this.doctorId = doctorId;
         this.personId = personId;
