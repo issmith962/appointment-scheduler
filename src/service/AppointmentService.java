@@ -47,6 +47,10 @@ public class AppointmentService {
         return this.scheduledAppointments;
     }
 
+    public void addAppointment(Appointment appointment) {
+        this.scheduledAppointments.add(appointment);
+    }
+
     public Appointment findBestAvailableSlot(Integer personId, List<ZonedDateTime> preferredDays, List<Integer> preferredDocs, Boolean isNew) {
         // return an appointment for person during best open slot (according to preferences)
         return null; // for now
