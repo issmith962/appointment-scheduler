@@ -1,4 +1,4 @@
-package response;
+package main.response;
 
 public class StartResponse extends Response {
     public StartResponse(boolean success) {

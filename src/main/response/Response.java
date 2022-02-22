@@ -1,4 +1,4 @@
-package response;
+package main.response;
 
 public class Response {
     private boolean success;

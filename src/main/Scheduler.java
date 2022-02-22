@@ -1,10 +1,10 @@
 package main;
 
-import model.Appointment;
-import request.ScheduleAppointmentRequest;
-import response.*;
-import service.AppointmentService;
-import service.SchedulingAPIService;
+import main.model.Appointment;
+import main.request.ScheduleAppointmentRequest;
+import main.response.*;
+import main.service.AppointmentService;
+import main.service.SchedulingAPIService;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ import java.util.List;
                     MAKE SURE TO TEST THESE TIMES --> NOT SURE IF MATH IS EXACTLY CORRECT */
 public class Scheduler {
     public static void main(String[] args) throws SchedulerException {
-        /* 0. Initialize service instances */
+        /* 0. Initialize main.service instances */
         SchedulingAPIService schedulingAPIService = new SchedulingAPIService();
         AppointmentService appointmentService = AppointmentService.getInstance();
 
@@ -41,14 +41,14 @@ public class Scheduler {
         AppointmentService.getInstance().setScheduledAppointments(appointments);
 
         /* 3. Loop through the appointment requests, schedule one by one.
-           - Update current appointment list member variable in service.AppointmentService.java
+           - Update current appointment list member variable in main.service.AppointmentService.java
            - Schedule the appointment through the API */
         while (true) {
             NextAppointmentResponse nextAppointmentResponse = SchedulingAPIService.getNextAppointmentRequest();
             if (!nextAppointmentResponse.isSuccess()) {
                 throw new SchedulerException(nextAppointmentResponse.getMessage());
             }
-            // End of request list reached -- I want to find a more elegant way than this, but this should work for now
+            // End of main.request list reached -- I want to find a more elegant way than this, but this should work for now
             if ((nextAppointmentResponse.getRequestId() == null)
                     || nextAppointmentResponse.getPersonId() == null
                     || nextAppointmentResponse.getPreferredDays() == null

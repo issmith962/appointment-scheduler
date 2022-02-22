@@ -1,11 +1,11 @@
-package service;
+package main.service;
 
-import api.ClientCommunicator;
+import main.api.ClientCommunicator;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import model.Appointment;
-import request.ScheduleAppointmentRequest;
-import response.*;
+import main.model.Appointment;
+import main.request.ScheduleAppointmentRequest;
+import main.response.*;
 
 import java.net.http.HttpResponse;
 import java.util.List;
@@ -27,7 +27,7 @@ public class SchedulingAPIService {
                 case 401:
                     return new StartResponse(false, "401: Token is invalid");
                 default:
-                    return new StartResponse(false, "Unexpected response code: " + apiResponse.statusCode());
+                    return new StartResponse(false, "Unexpected main.response code: " + apiResponse.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -45,7 +45,7 @@ public class SchedulingAPIService {
                 case 401:
                     return new StopResponse("401: Token is invalid");
                 default:
-                    return new StopResponse("Unexpected response code: " + apiResponse.statusCode());
+                    return new StopResponse("Unexpected main.response code: " + apiResponse.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -67,7 +67,7 @@ public class SchedulingAPIService {
                 case 405:
                     return new NextAppointmentResponse(false, "405: You have already called the stop endpoint for this run");
                 default:
-                    return new NextAppointmentResponse(false, "Unexpected response code: " + apiResponse.statusCode());
+                    return new NextAppointmentResponse(false, "Unexpected main.response code: " + apiResponse.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class SchedulingAPIService {
                 case 405:
                     return new InitialScheduleResponse("405: You have already called the stop endpoint for this run");
                 default:
-                    return new InitialScheduleResponse("Unexpected response code: " + apiResponse.statusCode());
+                    return new InitialScheduleResponse("Unexpected main.response code: " + apiResponse.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -108,7 +108,7 @@ public class SchedulingAPIService {
                 case 500:
                     return new ScheduleAppointmentResponse(false, "500: The schedule was unable to accommodate your requested appointment");
                 default:
-                    return new ScheduleAppointmentResponse(false, "Unexpected response code: " + apiResponse.statusCode());
+                    return new ScheduleAppointmentResponse(false, "Unexpected main.response code: " + apiResponse.statusCode());
             }
         } catch (Exception e) {
             e.printStackTrace();

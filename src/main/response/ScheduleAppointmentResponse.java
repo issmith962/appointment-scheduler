@@ -1,4 +1,4 @@
-package response;
+package main.response;
 
 public class ScheduleAppointmentResponse extends Response {
     public ScheduleAppointmentResponse(boolean success) {

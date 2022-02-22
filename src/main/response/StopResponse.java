@@ -1,6 +1,6 @@
-package response;
+package main.response;
 
-import model.Appointment;
+import main.model.Appointment;
 
 import java.util.List;
 

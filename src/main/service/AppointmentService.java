@@ -1,6 +1,6 @@
-package service;
+package main.service;
 
-import model.Appointment;
+import main.model.Appointment;
 
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
