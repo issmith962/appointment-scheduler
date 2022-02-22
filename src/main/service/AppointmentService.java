@@ -59,7 +59,7 @@ public class AppointmentService {
     }
 
     public Appointment findBestAvailableSlot(Integer personId, List<String> preferredDays, List<Integer> preferredDocs, Boolean isNew) {
-        >
+        ArrayList<AppointmentOption> options = new ArrayList<>();
 
         ArrayList<ArrayList<ZonedDateTime>> offLimitIntervals = new ArrayList<>();
         for (Appointment appt : scheduledAppointments) {
@@ -75,6 +75,26 @@ public class AppointmentService {
                 timeToDoctorOccupied.put(appt.getAppointmentTime(), new ArrayList<>());
             }
             timeToDoctorOccupied.get(appt.getAppointmentTime()).add(appt.getDoctorId());
+        }
+        for (String timeSlot : allTimeSlots) {
+            boolean isOption = true;
+            ZonedDateTime zdt = ZonedDateTime.parse(timeSlot);
+            for (ArrayList<ZonedDateTime> interval : offLimitIntervals) {
+                if (zdt.isBefore(interval.get(0)) || zdt.isEqual(interval.get(1)) || zdt.isAfter(interval.get(1))) {
+                    isOption = false;
+                    break;
+                }
+            }
+            if (!isOption) {
+                continue;
+            }
+            if (timeToDoctorOccupied.containsKey(timeSlot) && timeToDoctorOccupied.get(timeSlot).size() == 3) {
+                continue;
+            }
+            if (isNew && !(zdt.getHour() == 15 || zdt.getHour() == 16)) {
+                continue;
+            }
+            // Check preferences, add new object to options with priority if in preferences
         }
         return null;
     }
