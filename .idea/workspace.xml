@@ -2,18 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa5117e6-04c5-4e4b-8fda-81b1c6a06088" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/api/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/ClientCommunicator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Scheduler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/request/ScheduleAppointmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/request/ScheduleAppointmentRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/InitialScheduleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/InitialScheduleResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/NextAppointmentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/NextAppointmentResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/ScheduleAppointmentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/ScheduleAppointmentResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/StartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/StartResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/response/StopResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/StopResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/AppointmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SchedulingAPIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/SchedulingAPIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/api/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/ClientCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/FakeScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/FakeScheduler.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +47,26 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="FakeScheduler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test.FakeScheduler" />
+      <module name="appointment-scheduler" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FakeScheduler" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
