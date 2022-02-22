@@ -1,8 +1,12 @@
 package main;
 
+import model.Appointment;
+import response.InitialScheduleResponse;
 import response.StartResponse;
 import service.AppointmentService;
 import service.SchedulingAPIService;
+
+import java.util.List;
 
 /* SCHEDULING RESTRICTIONS:
             - Possible Times:
@@ -29,10 +33,17 @@ public class Scheduler {
         }
 
         /* 2. Get initial appointment list */
+        InitialScheduleResponse initialScheduleResponse = SchedulingAPIService.getInitialSchedule();
+        if (!initialScheduleResponse.isSuccess()) {
+            throw new SchedulerException(initialScheduleResponse.getMessage());
+        }
+        List<Appointment> appointments = initialScheduleResponse.getAppointments();
+        AppointmentService.getInstance().setScheduledAppointments(appointments);
 
         /* 3. Loop through the appointment requests, schedule one by one.
            - Update current appointment list member variable in service.AppointmentService.java
            - Schedule the appointment through the API */
+        
         /* 4. Stop the API, check to make sure the resulting schedule matches the local current appt. list */
     }
 
