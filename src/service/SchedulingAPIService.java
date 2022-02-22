@@ -1,5 +1,8 @@
 package service;
 
+import request.ScheduleAppointmentRequest;
+import response.*;
+
 public class SchedulingAPIService {
     private static final String START_PATH = "/Start";
     private static final String STOP_PATH = "/Stop";
