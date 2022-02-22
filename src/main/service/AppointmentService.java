@@ -10,11 +10,11 @@ import java.util.List;
 public class AppointmentService {
     private static AppointmentService instance = null;
     private ArrayList<Appointment> scheduledAppointments;
-    private ArrayList<ZonedDateTime> allTimeSlots;
+    private ArrayList<String> allTimeSlots;
 
     private AppointmentService() {
         scheduledAppointments = new ArrayList<Appointment>();
-        allTimeSlots = new ArrayList<ZonedDateTime>();
+        allTimeSlots = new ArrayList<String>();
 
         // Make list of all time slots...
         ZonedDateTime startSlot = ZonedDateTime.of(2021, 11,1,8,0,0,0, ZoneId.of("UTC"));
@@ -25,7 +25,7 @@ public class AppointmentService {
             ZonedDateTime slotPlusHour = slot;
             ZonedDateTime lastSlotOfDay = slot.withHour(16);
             while (slotPlusHour.isBefore(lastSlotOfDay) || slotPlusHour.isEqual(lastSlotOfDay)) {
-                allTimeSlots.add(slotPlusHour);
+                allTimeSlots.add(slotPlusHour.toString());
                 slotPlusHour = slotPlusHour.plusHours(1);
             }
             slot = slot.plusDays(1);
@@ -55,7 +55,7 @@ public class AppointmentService {
         ArrayList<ArrayList<String>> offLimitIntervals;
         for (Appointment appt : scheduledAppointments) {
             if (appt.getPersonId() == personId) {
-                
+                allTimeSlots.remove(appt.getAppointmentTime());
             }
         }
 
