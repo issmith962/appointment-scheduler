@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa5117e6-04c5-4e4b-8fda-81b1c6a06088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Scheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AppointmentService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,5 +70,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/service/AppointmentService.java</url>
+          <line>12</line>
+          <properties field="allTimeSlots" class="service.AppointmentService" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
