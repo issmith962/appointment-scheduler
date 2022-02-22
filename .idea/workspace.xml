@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fa5117e6-04c5-4e4b-8fda-81b1c6a06088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/SchedulingAPIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/SchedulingAPIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Appointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/response/InitialScheduleResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/response/InitialScheduleResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/response/StartResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/response/StartResponse.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
