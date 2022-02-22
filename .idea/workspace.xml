@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fa5117e6-04c5-4e4b-8fda-81b1c6a06088" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/api/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/api/ClientCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Scheduler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/model/Appointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/model/Appointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/FakeScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/FakeScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/request/ScheduleAppointmentRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/request/ScheduleAppointmentRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/response/NextAppointmentResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/response/NextAppointmentResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/service/AppointmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/service/AppointmentService.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,6 +38,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15527344" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

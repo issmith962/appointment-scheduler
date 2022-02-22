@@ -1,16 +1,15 @@
 package main.response;
 
-import java.time.ZonedDateTime;
 import java.util.List;
 
 public class NextAppointmentResponse extends Response {
     private Integer requestId;
     private Integer personId;
-    private List<ZonedDateTime> preferredDays;
+    private List<String> preferredDays;
     private List<Integer> preferredDocs;
     private Boolean isNew;
 
-    public NextAppointmentResponse(int requestId, int personId, List<ZonedDateTime> preferredDays, List<Integer> preferredDocs, boolean isNew) {
+    public NextAppointmentResponse(int requestId, int personId, List<String> preferredDays, List<Integer> preferredDocs, boolean isNew) {
         super(true, null);
         this.requestId = requestId;
         this.personId = personId;
@@ -36,7 +35,7 @@ public class NextAppointmentResponse extends Response {
         return personId;
     }
 
-    public List<ZonedDateTime> getPreferredDays() {
+    public List<String> getPreferredDays() {
         return preferredDays;
     }
 

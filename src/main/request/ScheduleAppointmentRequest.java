@@ -1,15 +1,13 @@
 package main.request;
 
-import java.time.ZonedDateTime;
-
 public class ScheduleAppointmentRequest {
     private Integer requestId;
     private Integer doctorId;
     private Integer personId;
-    private ZonedDateTime appointmentTime;
+    private String appointmentTime;
     private Boolean isNewPatientAppointment;
 
-    public ScheduleAppointmentRequest(Integer requestId, Integer doctorId, Integer personId, ZonedDateTime appointmentTime, boolean isNewPatientAppointment) {
+    public ScheduleAppointmentRequest(Integer requestId, Integer doctorId, Integer personId, String appointmentTime, boolean isNewPatientAppointment) {
         this.requestId = requestId;
         this.doctorId = doctorId;
         this.personId = personId;
@@ -29,7 +27,7 @@ public class ScheduleAppointmentRequest {
         return personId;
     }
 
-    public ZonedDateTime getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 
@@ -49,7 +47,7 @@ public class ScheduleAppointmentRequest {
         this.personId = personId;
     }
 
-    public void setAppointmentTime(ZonedDateTime appointmentTime) {
+    public void setAppointmentTime(String appointmentTime) {
         this.appointmentTime = appointmentTime;
     }
 

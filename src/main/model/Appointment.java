@@ -1,16 +1,14 @@
 package main.model;
 
-import java.time.ZonedDateTime;
-
 public class Appointment {
     private int doctorId;
     private int personId;
-    private ZonedDateTime appointmentTime;
+    private String appointmentTime;
     private boolean isNewPatientAppointment;
 
     public Appointment() {}
 
-    public Appointment(int doctorId, int personId, ZonedDateTime appointmentTime, boolean isNewPatientAppointment) {
+    public Appointment(int doctorId, int personId, String appointmentTime, boolean isNewPatientAppointment) {
         this.doctorId = doctorId;
         this.personId = personId;
         this.appointmentTime = appointmentTime;
@@ -25,7 +23,7 @@ public class Appointment {
         return personId;
     }
 
-    public ZonedDateTime getAppointmentTime() {
+    public String getAppointmentTime() {
         return appointmentTime;
     }
 

@@ -57,7 +57,7 @@ public class Scheduler {
                 break;
             }
             Appointment appointment = AppointmentService.getInstance().findBestAvailableSlot(nextAppointmentResponse.getPersonId(),
-                    nextAppointmentResponse.getPreferredDays(), nextAppointmentResponse.getPreferredDocs(), nextAppointmentResponse.getNew());
+                   nextAppointmentResponse.getPreferredDays(), nextAppointmentResponse.getPreferredDocs(), nextAppointmentResponse.getNew());
             if (appointment == null) {
                 throw new SchedulerException("No open slots! Must a bug, since API was configured to have open slots for all requests.");
             }
