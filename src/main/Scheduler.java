@@ -1,7 +1,10 @@
 package main;
 
 import model.Appointment;
+import request.ScheduleAppointmentRequest;
 import response.InitialScheduleResponse;
+import response.NextAppointmentResponse;
+import response.ScheduleAppointmentResponse;
 import response.StartResponse;
 import service.AppointmentService;
 import service.SchedulingAPIService;
@@ -43,6 +46,32 @@ public class Scheduler {
         /* 3. Loop through the appointment requests, schedule one by one.
            - Update current appointment list member variable in service.AppointmentService.java
            - Schedule the appointment through the API */
+        while (true) {
+            NextAppointmentResponse nextAppointmentResponse = SchedulingAPIService.getNextAppointmentRequest();
+            if (!nextAppointmentResponse.isSuccess()) {
+                throw new SchedulerException(nextAppointmentResponse.getMessage());
+            }
+            // End of request list reached -- I want to find a more elegant way than this, but this should work for now
+            if ((nextAppointmentResponse.getRequestId() == null)
+                    || nextAppointmentResponse.getPersonId() == null
+                    || nextAppointmentResponse.getPreferredDays() == null
+                    || nextAppointmentResponse.getPreferredDocs() == null
+                    || nextAppointmentResponse.getNew() == null) {
+                break;
+            }
+            Appointment appointment = AppointmentService.getInstance().findBestAvailableSlot(nextAppointmentResponse.getPersonId(),
+                    nextAppointmentResponse.getPreferredDays(), nextAppointmentResponse.getPreferredDocs(), nextAppointmentResponse.getNew());
+            if (appointment == null) {
+                throw new SchedulerException("No open slots! Must a bug, since API was configured to have open slots for all requests.");
+            }
+            ScheduleAppointmentRequest scheduleAppointmentRequest = new ScheduleAppointmentRequest(nextAppointmentResponse.getRequestId(),
+                    appointment.getDoctorId(), appointment.getPersonId(), appointment.getAppointmentTime(), appointment.isNewPatientAppointment());
+            ScheduleAppointmentResponse scheduleAppointmentResponse = SchedulingAPIService.scheduleAppointment(scheduleAppointmentRequest);
+            if (!scheduleAppointmentResponse.isSuccess()) {
+                throw new SchedulerException(scheduleAppointmentResponse.getMessage());
+            }
+            AppointmentService.getInstance().addAppointment(appointment);
+        }
         
         /* 4. Stop the API, check to make sure the resulting schedule matches the local current appt. list */
     }
