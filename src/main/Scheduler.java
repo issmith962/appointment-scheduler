@@ -1,5 +1,9 @@
 package main;
 
+import response.StartResponse;
+import service.AppointmentService;
+import service.SchedulingAPIService;
+
 /* SCHEDULING RESTRICTIONS:
             - Possible Times:
                 Start (Inclusive): November 1, 2021 @ 8am
@@ -13,11 +17,23 @@ package main;
                     End of block (exclusive): Day + 7:truncate(Time)
                     MAKE SURE TO TEST THESE TIMES --> NOT SURE IF MATH IS EXACTLY CORRECT */
 public class Scheduler {
-    /* 0. Initialize service instances */
-    /* 1. Start API */
-    /* 2. Get initial appointment list */
-    /* 3. Loop through the appointment requests, schedule one by one.
+    public static void main(String[] args) throws SchedulerException {
+        /* 0. Initialize service instances */
+        SchedulingAPIService schedulingAPIService = new SchedulingAPIService();
+        AppointmentService appointmentService = AppointmentService.getInstance();
+
+        /* 1. Start API */
+        StartResponse startResponse = SchedulingAPIService.startAPI();
+        if (!startResponse.isSuccess()) {
+            throw new SchedulerException(startResponse.getMessage());
+        }
+
+        /* 2. Get initial appointment list */
+
+        /* 3. Loop through the appointment requests, schedule one by one.
            - Update current appointment list member variable in service.AppointmentService.java
            - Schedule the appointment through the API */
-    /* 4. Stop the API, check to make sure the resulting schedule matches the local current appt. list */
+        /* 4. Stop the API, check to make sure the resulting schedule matches the local current appt. list */
+    }
+
 }
