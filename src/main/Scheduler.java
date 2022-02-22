@@ -2,10 +2,7 @@ package main;
 
 import model.Appointment;
 import request.ScheduleAppointmentRequest;
-import response.InitialScheduleResponse;
-import response.NextAppointmentResponse;
-import response.ScheduleAppointmentResponse;
-import response.StartResponse;
+import response.*;
 import service.AppointmentService;
 import service.SchedulingAPIService;
 
@@ -72,8 +69,27 @@ public class Scheduler {
             }
             AppointmentService.getInstance().addAppointment(appointment);
         }
-        
+
         /* 4. Stop the API, check to make sure the resulting schedule matches the local current appt. list */
+        StopResponse stopResponse = SchedulingAPIService.stopAPI();
+        if (!stopResponse.isSuccess()) {
+            throw new SchedulerException(stopResponse.getMessage());
+        }
+        /*  Fastest way to check finished list?
+            Maybe I should sort them by date/time and check if they are equal?
+            Would need to override equals() and compareTo() for appointment though... not sure
+                how equals works on Lists...
+               For now, I'll just print them out.
+         */
+        System.out.println("Remote Appointments");
+        for (Appointment appt : stopResponse.getAppointments()) {
+            System.out.println(appt);
+        }
+
+        System.out.println("Local Appointments");
+        for (Appointment appt : AppointmentService.getInstance().getScheduledAppointments()) {
+            System.out.println(appt);
+        }
     }
 
 }
